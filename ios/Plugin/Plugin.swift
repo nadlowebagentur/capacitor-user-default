@@ -7,21 +7,28 @@ import Capacitor
  */
 @objc(UserDefault)
 public class UserDefault: CAPPlugin {
+    private let kFeedbackKey = "com.apple.feedback.managed";
+    
     // The Managed app configuration dictionary pushed down from an MDM server are stored in this key.
-    static let MDMConfigurationKey = "com.apple.configuration.managed";
+    private let kConfigurationKey = "com.apple.configuration.managed";
     
     @objc func getByKey(_ call: CAPPluginCall) {
         let key = call.getString("key") ?? ""
         
         call.success([
-            "value": self.readValue(key)
+            "value": self.readValue(key: key)
         ])
     }
     
-    private func readValue(_ key: String) -> String {
-        let dict = UserDefaults.init(suiteName: UserDefault.MDMConfigurationKey);
-    
-    
-        return dict?.string(forKey: key) ?? "";
+    private func readValue(key: String) -> String {
+        if let myAppConfig = UserDefaults.standard.dictionary(forKey: kConfigurationKey) {
+            if (key == "all") {
+                return String(describing: myAppConfig);
+            }
+            
+            return (myAppConfig[key] as? String) ?? "";
+        }
+        
+        return "";
     }
 }
