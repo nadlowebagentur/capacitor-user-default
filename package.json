@@ -1,6 +1,6 @@
 {
   "name": "@nadlowebagentur/capacitor-user-default",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Read default app settings",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -11,7 +11,7 @@
     "android/build.gradle",
     "dist/",
     "ios/Plugin/",
-    "CapacitorUserDefault.podspec"
+    "NadlowebagenturCapacitorUserDefault.podspec"
   ],
   "author": "codobred",
   "license": "MIT",
