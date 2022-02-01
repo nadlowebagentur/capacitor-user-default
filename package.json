@@ -1,6 +1,6 @@
 {
   "name": "@nadlowebagentur/capacitor-user-default",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Read default app settings",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
