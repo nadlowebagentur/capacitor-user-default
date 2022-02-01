@@ -1,5 +1,3 @@
-
-  <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="ch.nadlo.oss.capacitor-user-default.capacitoruserdefault">
-  </manifest>
-  
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ch.nadlo.oss.capacitor.user.defaults">
+</manifest>

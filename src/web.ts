@@ -1,14 +1,8 @@
 import { WebPlugin } from '@capacitor/core';
-import { UserDefaultPlugin } from './definitions';
+
+import type { UserDefaultPlugin } from './definitions';
 
 export class UserDefaultWeb extends WebPlugin implements UserDefaultPlugin {
-  constructor() {
-    super({
-      name: 'UserDefault',
-      platforms: ['web'],
-    });
-  }
-
   getByKey({ key }: { key: string }): Promise<{ value: string }> {
     const storage: Record<string, any> =
       typeof window === 'object' ? window : global;
@@ -18,10 +12,3 @@ export class UserDefaultWeb extends WebPlugin implements UserDefaultPlugin {
     return Promise.resolve({ value });
   }
 }
-
-const UserDefault = new UserDefaultWeb();
-
-export { UserDefault };
-
-import { registerWebPlugin } from '@capacitor/core';
-registerWebPlugin(UserDefault);

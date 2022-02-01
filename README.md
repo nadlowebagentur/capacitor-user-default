@@ -1,6 +1,6 @@
-# @nadlowebagentur/capacitor-user-default
+# capacitor-user-default
 
-Plugin that can read IOS NSUserDefaults config which is sent from the MDM system.
+Read default app settings
 
 ## Install
 
@@ -9,37 +9,29 @@ npm install @nadlowebagentur/capacitor-user-default
 npx cap sync
 ```
 
-## iOS
+## API
 
-For being able to use MDM config device should be connected to the existing MDM and system should be able to send config payload like this.
+<docgen-index>
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>appServerURL</key>
-	<string>http://developer.apple.com/</string>
-</dict>
-</plist>
-```
+* [`getByKey(...)`](#getbykey)
 
-## Android
+</docgen-index>
 
-Not supported yet.
+<docgen-api>
+<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-## Example
-
-Please, take a look at the [example](./example) folder for more demo.
+### getByKey(...)
 
 ```typescript
-import {Plugins} from '@capacitor/core';
-import 'capacitor-user-default';
-
-// access to the plugin
-const { UserDefault } = Plugins;
-
-UserDefault.getByKey({ key: 'appServerURL' }).then(({ value }: any) => {
-  console.log({ value });
-});
+getByKey(params: { key: string; }) => Promise<{ value: string; }>
 ```
+
+| Param        | Type                          |
+| ------------ | ----------------------------- |
+| **`params`** | <code>{ key: string; }</code> |
+
+**Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
+
+--------------------
+
+</docgen-api>
