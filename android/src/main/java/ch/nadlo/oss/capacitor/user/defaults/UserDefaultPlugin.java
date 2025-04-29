@@ -14,21 +14,14 @@ import com.getcapacitor.annotation.CapacitorPlugin;
 public class UserDefaultPlugin extends Plugin {
     private final UserDefault implementation = new UserDefault();
 
-    @Override
-    protected void handleOnResume() {
-        super.handleOnResume();
-
-        RestrictionsManager myRestrictionsMgr =
-                (RestrictionsManager) getContext().getSystemService(Context.RESTRICTIONS_SERVICE);
-
-        Bundle appRestrictions = myRestrictionsMgr.getApplicationRestrictions();
-
-        implementation.setAppRestrictions(appRestrictions);
-    }
-
     @PluginMethod
     public void getByKey(PluginCall call) {
         String key = call.getString("key");
+
+        RestrictionsManager myRestrictionsMgr =
+            (RestrictionsManager) getContext().getSystemService(Context.RESTRICTIONS_SERVICE);
+        Bundle appRestrictions = myRestrictionsMgr.getApplicationRestrictions();
+        implementation.setAppRestrictions(appRestrictions);
 
         JSObject ret = new JSObject();
 
